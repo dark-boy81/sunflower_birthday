@@ -111,7 +111,7 @@
 
     <div id="passwordSection">
       <p>🔑 :رمز را پیدا کن و وارد کن</p>
-      <input type="text" id="passwordInput" placeholder="رمز را وارد کن"/>
+      <input type="text" id="passwordInput" placeholder="رمز"/>
       <br/>
       <button id="checkPassBtn" onclick="checkPassword()">تایید رمز</button>
       <div id="result"></div>
@@ -134,7 +134,7 @@
     }
     function checkPassword() {
       const pass = document.getElementById("passwordInput").value.trim();
-      if (pass === "1234") { // رمز را بعدا تغییر بده
+      if (pass === "August21") {
         window.location.href = "step2.html";
       } else {
         document.getElementById("result").style.color = "red";
