@@ -110,7 +110,7 @@
     <div id="hintText"></div>
 
     <div id="passwordSection">
-      <p>🔑 :رمز را از روی میز پیدا کن و وارد کن</p>
+      <p>🔑 :رمز را پیدا کن و وارد کن</p>
       <input type="text" id="passwordInput" placeholder="رمز را وارد کن"/>
       <br/>
       <button id="checkPassBtn" onclick="checkPassword()">تایید رمز</button>
@@ -124,7 +124,7 @@
       if (option === 3) {
         hint.style.display = "block";
         hint.style.color = "#1b5e20";
-        hint.textContent = "✅آفرین! حالا برو به میز خودمون، روی میز رمز را پیدا کن و اینجا وارد کن";
+        hint.textContent = "✅ آفرین! حالا برو به پارک میز خودمون، رمز را پیدا کن و اینجا وارد کن";
         document.getElementById("passwordSection").style.display = "block";
       } else {
         hint.style.display = "block";
@@ -138,7 +138,7 @@
         window.location.href = "step2.html";
       } else {
         document.getElementById("result").style.color = "red";
-        document.getElementById("result").textContent = "❌ رمز اشتباه است.";
+        document.getElementById("result").textContent = "❌ رمز اشتباه است";
       }
     }
   </script>
