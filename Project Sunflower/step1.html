@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>مرحله ۱ - معمای جنایی</title>
+  <style>
+    body {
+      background: #f1f8e9;
+      color: #1b5e20;
+      font-family: Tahoma, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 25px 20px;
+      text-align: center;
+      max-width: 500px;
+      width: 100%;
+      position: relative;
+    }
+    h2 {
+      font-size: 1.5em;
+      margin-bottom: 15px;
+    }
+    p {
+      font-size: 1em;
+      margin-bottom: 20px;
+      line-height: 1.6em;
+    }
+    button.option {
+      background-color: #43a047;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1em;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 8px 0;
+      width: 100%;
+      transition: background-color 0.3s ease;
+    }
+    button.option:hover {
+      background-color: #388e3c;
+    }
+    #hintText {
+      margin-top: 20px;
+      font-weight: bold;
+      display: none;
+      font-size: 1em;
+      color: #1b5e20;
+    }
+    #passwordSection {
+      margin-top: 20px;
+      display: none;
+    }
+    input {
+      padding: 10px;
+      font-size: 1em;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      width: 80%;
+      max-width: 250px;
+    }
+    #checkPassBtn {
+      background-color: #43a047;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1em;
+      border-radius: 6px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+    #checkPassBtn:hover {
+      background-color: #388e3c;
+    }
+    #result {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    @media (max-width:600px) {
+      h2 { font-size: 1.3em; }
+      p { font-size: 0.95em; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>🔍 مرحله ۱: معمای نامه خودکشی</h2>
+    <p>
+      مردی در دفتر کارش مرده پیدا شد. روی میز یک تفنگ و یک نامه بود که نوشته بود:
+      «من خسته‌ام... دیگر نمی‌خواهم ادامه دهم.»
+      کارآگاه گفت:
+      «این یک خودکشی نیست، قتل است.»
+      چرا مطمئن بود؟
+    </p>
+    <button class="option" onclick="checkAnswer(1)">اگر مرد خودش را کشته بود، نمی‌توانست نامه را بنویسد.</button>
+    <button class="option" onclick="checkAnswer(2)">اگر مرد خودش را کشته بود، جای گلوله متفاوت بود.</button>
+    <button class="option" onclick="checkAnswer(3)">اگر مرد خودش را کشته بود، اثر انگشت روی اسلحه نبود.</button>
+    <button class="option" onclick="checkAnswer(4)">اگر مرد خودش را کشته بود، باید قلم در دستش می‌ماند.</button>
+
+    <div id="hintText"></div>
+
+    <div id="passwordSection">
+      <p>🔑 رمز را از روی میز پیدا کن و وارد کن:</p>
+      <input type="text" id="passwordInput" placeholder="رمز را وارد کن"/>
+      <br/>
+      <button id="checkPassBtn" onclick="checkPassword()">تایید رمز</button>
+      <div id="result"></div>
+    </div>
+  </div>
+
+  <script>
+    function checkAnswer(option) {
+      const hint = document.getElementById("hintText");
+      if (option === 3) {
+        hint.style.display = "block";
+        hint.textContent = "✅ آفرین! حالا برو به کافه همیشگی‌تان، روی میزتان رمز را پیدا کن و اینجا وارد کن.";
+        document.getElementById("passwordSection").style.display = "block";
+      } else {
+        hint.style.display = "block";
+        hint.style.color = "red";
+        hint.textContent = "❌ جواب اشتباه بود، دوباره تلاش کن.";
+      }
+    }
+    function checkPassword() {
+      const pass = document.getElementById("passwordInput").value.trim();
+      if (pass === "1234") { // رمز را بعدا تغییر بده
+        window.location.href = "step2.html";
+      } else {
+        document.getElementById("result").style.color = "red";
+        document.getElementById("result").textContent = "❌ رمز اشتباه است.";
+      }
+    }
+  </script>
+</body>
+</html>
